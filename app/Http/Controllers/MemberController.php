@@ -1,42 +1,53 @@
 <?php
-// File: app/Http/Controllers/MemberController.php
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreMemberRequest;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
+    private array $members = [
+        ['id' => 1, 'nama' => 'Budi Santoso', 'nim' => '24001001', 'email' => 'budi@example.com', 'nomor_telepon' => '081234567890', 'alamat' => 'Jl. Mawar No. 10', 'status' => 'aktif'],
+        ['id' => 2, 'nama' => 'Siti Aminah', 'nim' => '24001002', 'email' => 'siti@example.com', 'nomor_telepon' => '081298765432', 'alamat' => 'Jl. Melati No. 5', 'status' => 'aktif'],
+    ];
+
     public function index()
     {
-        return 'MemberController@index';
+        $members = $this->members;
+        return view('members.index', compact('members'));
     }
 
     public function create()
     {
-        return 'MemberController@create';
+        return view('members.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreMemberRequest $request)
     {
-        return 'MemberController@store';
+        $validated = $request->validated();
+
+        return redirect()->route('members.index')
+            ->with('success', "Anggota \"{$validated['nama']}\" berhasil ditambahkan (data dummy, belum tersimpan ke database).");
     }
 
-// File: app/Http/Controllers/CategoryController.php
-// Method show() TIDAK dibuat - categories tidak punya halaman detail tersendiri
+    public function show(string $id)
+    {
+
+    }
 
     public function edit(string $id)
     {
-        return "MemberController@edit, id: {$id}";
+
     }
 
     public function update(Request $request, string $id)
     {
-        return "MemberController@update, id: {$id}";
+
     }
 
     public function destroy(string $id)
     {
-        return "MemberController@destroy, id: {$id}";
+
     }
 }
