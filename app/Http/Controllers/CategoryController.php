@@ -2,7 +2,7 @@
 // File: app/Http/Controllers/CategoryController.php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\StoreCategoryRequest;
 use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
@@ -11,15 +11,18 @@ class CategoryController extends Controller
         return 'CategoryController@index';
     }
 
-    public function create()
+   public function create()
     {
-        return 'CategoryController@create';
+        return view('categories.create');
     }
 
-    public function store(Request $request)
-    {
-        return 'CategoryController@store';
-    }
+    public function store(StoreCategoryRequest $request)
+{
+    $validated = $request->validated();
+
+    return redirect()->route('categories.index')
+        ->with('success', "Kategori \"{$validated['nama_kategori']}\" berhasil ditambahkan (data dummy, belum tersimpan ke database).");
+}
 
     public function show(string $id)
     {
