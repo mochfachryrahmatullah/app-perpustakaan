@@ -18,7 +18,7 @@
                 <th>Judul</th>
                 <th>Penulis</th>
                 <th>Penerbit</th>
-                <th>ID Kategori</th>
+                <th>Kategori</th>
                 <th>Stok</th>
                 <th>Aksi</th>
             </tr>
@@ -30,7 +30,7 @@
                     <td>{{ $book->judul }}</td>
                     <td>{{ $book->penulis }}</td>
                     <td>{{ $book->penerbit }}</td>
-                    <td>{{ $book->category_id }}</td>
+                    <td>{{ $book['category']['nama_kategori'] }}</td> 
                     <td>{{ $book->stok }}</td>
                     <td>
                         <a href="{{ route('books.show', $book->id) }}">Detail</a> |

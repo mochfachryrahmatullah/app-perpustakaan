@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <title>@yield('title', 'Perpustakaan Digital Kampus')</title>
     <style>
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .badge-dikembalikan { background-color: #16a34a; } /* Hijau */
+        .badge-dipinjam { background-color: #f59e0b; }    /* Kuning/Oranye */
+        .badge-terlambat { background-color: #dc2626; }   /* Merah */
         * { box-sizing: border-box; }
         body { font-family: sans-serif; margin: 0; color: #1f2937; }
         nav { background: #1e3a8a; padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
