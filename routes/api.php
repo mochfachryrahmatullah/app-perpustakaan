@@ -1,3 +1,5 @@
+<?php
+
 use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\LoanController;
 use App\Http\Controllers\Api\MemberController;
